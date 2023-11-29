@@ -9,46 +9,28 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource {
   
-    var account = {
-        var account = UIImageView()
-        account.image =  UIImage(systemName: "person")
-    return account
-    }()
-    let reminder = {
-        let reminder = UIImageView()
-        reminder.image = UIImage(systemName: "bell")
-    return reminder
-    }()
-    
     var textLabelSort: [String] = ["Все советы","Новое","Сохраненное"]
     var textlabelImage: [String] = ["Ранние признаки беременности","О чем говорят женщины", "Как поддержать гигиену","Как задержать менопаузу"]
-    var items: [UIImage] = []
+    var textlabelImage1: [String] = ["Беременность или ПМС","Нужны ли средства гигиены", "Советы по зачатию"]
+    var textlabelImage2: [String] = ["Ванны во время беременности","Первые шевеления малыща", "Как правильно подобрать белье","Самомассаж во время лактостаза"]
+    var items: [UIImage] = [.flo0, .flo1,.flo2, .flo3]
+    var items1: [UIImage] = [.flo4, .flo5,.flo6]
+    var items2: [UIImage] = [.flo7, .flo8,.flo9, .flo10]
     lazy var collectionView = UICollectionView (frame: .zero,
                                                 collectionViewLayout: getCompositionalLayout())
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
-//        self.title = "Статьи"
-        view.addSubview(account)
-        view.addSubview(reminder)
+        view.backgroundColor = .white
+        title = "Статьи"
+        navigationItem.rightBarButtonItem = .init(title: nil, image: .init(systemName: "bell"), target: nil, action: nil)
+        navigationItem.leftBarButtonItem = .init(title: nil, image: .init(systemName: "person"), target: nil, action: nil)
+
         view.addSubview(collectionView)
-    
-        account.translatesAutoresizingMaskIntoConstraints = false
-        account.bottomAnchor.constraint(equalTo: collectionView.topAnchor, constant: -10).isActive = true
-        account.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 12).isActive = true
-        reminder.translatesAutoresizingMaskIntoConstraints = false
-        reminder.bottomAnchor.constraint(equalTo: collectionView.topAnchor, constant: -10).isActive = true
-        reminder.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -12).isActive = true
-        
-        for item in 0...3 {
-            items.append(UIImage(named: "flo\(item)")!)
-        }
-        
-       
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
@@ -76,10 +58,10 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
                 layoutSection.orthogonalScrollingBehavior = .continuous
                 return layoutSection
             } else {
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/2.1),
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/2),
                                                       heightDimension: .fractionalHeight(1))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/1.1),
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/1.2),
                                                        heightDimension: .fractionalHeight(1/3.5))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 group.interItemSpacing = .fixed(8)
@@ -114,19 +96,32 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         }
     
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            if indexPath.section == 0 {
+            switch indexPath.section {
+            case 0:
                 let cellSort = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCellSort.id, for: indexPath) as! CollectionViewCellSort
                 cellSort.labelSort.text = textLabelSort[indexPath.row]
                 return cellSort
-            } else {
+            case 1:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.id, for: indexPath) as! CollectionViewCell
-                cell.imageView.image = items[indexPath.row]
+                cell.imageView.image = items[indexPath.item]
                 cell.labelImage.text = textlabelImage[indexPath.row]
                 return cell
+            case 2:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.id, for: indexPath) as! CollectionViewCell
+                cell.imageView.image = items1[indexPath.row]
+                cell.labelImage.text = textlabelImage1[indexPath.row]
+                return cell
+            case 3:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.id, for: indexPath) as! CollectionViewCell
+                cell.imageView.image = items2[indexPath.row]
+                cell.labelImage.text = textlabelImage2[indexPath.row]
+                return cell
+            default:
+                fatalError()
             
             }
         }
         
         
-    
+
 }
