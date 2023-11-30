@@ -13,9 +13,9 @@ class CollectionViewCellSort: UICollectionViewCell {
     
     
     let labelSort = {
-        let lebelSort = UILabel()
-        lebelSort.translatesAutoresizingMaskIntoConstraints = false
-        return lebelSort
+        var labelSort = UILabel()
+        labelSort.translatesAutoresizingMaskIntoConstraints = false
+        return labelSort
     }()
     
     override init(frame: CGRect) {
@@ -31,8 +31,7 @@ class CollectionViewCellSort: UICollectionViewCell {
             labelSort.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             labelSort.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
-   
-        
+       
     }
     
     required init?(coder: NSCoder) {

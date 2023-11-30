@@ -18,20 +18,12 @@ class CollectionViewCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
-    let labelSort = {
-        let lebelSort = UILabel()
-        lebelSort.translatesAutoresizingMaskIntoConstraints = false
-        return lebelSort
-    }()
-    
+  
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         contentView.addSubview(imageView)
         contentView.addSubview(labelImage)
-        contentView.addSubview(labelSort)
-    
         
         NSLayoutConstraint.activate([
 

@@ -34,6 +34,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
+            
         ])
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -46,12 +47,12 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     func getCompositionalLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout { (section, evironment) -> NSCollectionLayoutSection? in
             if section == 0 {
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/3), heightDimension: .fractionalHeight(1))
+                let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(1), heightDimension: .fractionalHeight(1))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                                        heightDimension: .fractionalHeight(1/20))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-                group.interItemSpacing = .fixed(8)
+                group.interItemSpacing = .fixed(30)
                 let layoutSection = NSCollectionLayoutSection(group: group)
                 layoutSection.interGroupSpacing = 8
                 layoutSection.contentInsets = .init(top: 10, leading: 12, bottom: 10, trailing: 12)
@@ -59,7 +60,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
                 return layoutSection
             } else {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/2),
-                                                      heightDimension: .fractionalHeight(1))
+                                                      heightDimension: .fractionalHeight(1/1.1))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/1.2),
                                                        heightDimension: .fractionalHeight(1/3.5))
@@ -74,6 +75,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
             }
         }
     }
+
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             print(indexPath)
         }
@@ -115,6 +117,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.id, for: indexPath) as! CollectionViewCell
                 cell.imageView.image = items2[indexPath.row]
                 cell.labelImage.text = textlabelImage2[indexPath.row]
+                
                 return cell
             default:
                 fatalError()
