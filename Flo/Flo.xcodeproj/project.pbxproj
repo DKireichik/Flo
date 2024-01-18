@@ -18,6 +18,7 @@
 		4B86521F2B580FD800DA547E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B86521E2B580FD800DA547E /* TabBarViewController.swift */; };
 		4B8652212B5811ED00DA547E /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8652202B5811ED00DA547E /* TodayViewController.swift */; };
 		4B8652232B58120700DA547E /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8652222B58120700DA547E /* ArticlesViewController.swift */; };
+		4B8652262B592F5600DA547E /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8652252B592F5600DA547E /* HeaderCollectionReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		4B86521E2B580FD800DA547E /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		4B8652202B5811ED00DA547E /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		4B8652222B58120700DA547E /* ArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
+		4B8652252B592F5600DA547E /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				4B8652222B58120700DA547E /* ArticlesViewController.swift */,
 				4B1D77CB2B171D5F00D6F710 /* CollectionViewCellSort.swift */,
 				4B1D77C92B15E4EB00D6F710 /* CollectionViewCell.swift */,
+				4B8652252B592F5600DA547E /* HeaderCollectionReusableView.swift */,
 			);
 			path = "Articles Group";
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 				4B8652212B5811ED00DA547E /* TodayViewController.swift in Sources */,
 				4B86521F2B580FD800DA547E /* TabBarViewController.swift in Sources */,
 				4B1D77B82B14C5EF00D6F710 /* SceneDelegate.swift in Sources */,
+				4B8652262B592F5600DA547E /* HeaderCollectionReusableView.swift in Sources */,
 				4B1D77CC2B171D5F00D6F710 /* CollectionViewCellSort.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

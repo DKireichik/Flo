@@ -11,6 +11,7 @@ import UIKit
 class Article {
         
         var textLabelSort: [String] = ["Все советы","Сохраненное"]
+        var headerLabelText: [String] = ["Любимые статьи пользователй","Выбор гинеколога", "Все о беременности"]
         var textlabelImage: [String] = ["Ранние признаки беременности","О чем говорят женщины", "Как поддержать гигиену","Как задержать менопаузу"]
         var textlabelImage1: [String] = ["Беременность или ПМС","Нужны ли средства гигиены", "Советы по зачатию"]
         var textlabelImage2: [String] = ["Ванны во время беременности","Первые шевеления малыща", "Как правильно подобрать белье","Самомассаж во время лактостаза"]
@@ -46,10 +47,11 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate,UIColle
             collectionView.dataSource = self
             collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.id)
             collectionView.register(CollectionViewCellSort.self, forCellWithReuseIdentifier: CollectionViewCellSort.id)
+            collectionView.register(HeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCollectionReusableView.identifier)
             
         }
-        
-        
+  
+    
         func getCompositionalLayout() -> UICollectionViewCompositionalLayout {
             return UICollectionViewCompositionalLayout { (section, evironment) -> NSCollectionLayoutSection? in
                 if section == 0 {
@@ -60,7 +62,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate,UIColle
                     let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                     group.interItemSpacing = .fixed(30)
                     let layoutSection = NSCollectionLayoutSection(group: group)
-                    layoutSection.interGroupSpacing = 8
+                    layoutSection.interGroupSpacing = 10
                     layoutSection.contentInsets = .init(top: 10, leading: 12, bottom: 10, trailing: 12)
                     layoutSection.orthogonalScrollingBehavior = .continuous
                     return layoutSection
@@ -76,15 +78,19 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate,UIColle
                     layoutSection.interGroupSpacing = 8
                     layoutSection.contentInsets = .init(top: 10, leading: 12, bottom: 10, trailing: 12)
                     layoutSection.orthogonalScrollingBehavior = .continuous
+                    let headerSection = self.createSectionHeader()
+                    layoutSection.boundarySupplementaryItems = [headerSection]
                     return layoutSection
                 
                 }
             }
         }
-
-            func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-                print(indexPath)
-            }
+    func createSectionHeader () -> NSCollectionLayoutBoundarySupplementaryItem {
+        let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(1))
+        let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: layoutSectionHeaderSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+        return layoutSectionHeader
+    }
+        
             func numberOfSections(in collectionView: UICollectionView) -> Int {
                 return 4
             }
@@ -93,16 +99,17 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate,UIColle
                 case 0:
                     return article.textLabelSort.count
                 case 1:
-                    return 4
+                    return article.items.count
                 case 2:
-                    return 3
+                    return article.items1.count
                 case 3:
-                    return 4
+                    return article.items2.count
                 default:
                     fatalError()
                 }
             }
-        
+   
+    
             func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
                 switch indexPath.section {
                 case 0:
@@ -123,14 +130,18 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate,UIColle
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.id, for: indexPath) as! CollectionViewCell
                     cell.imageView.image = article.items2[indexPath.row]
                     cell.labelImage.text = article.textlabelImage2[indexPath.row]
-                    
                     return cell
                 default:
                     fatalError()
                 
                 }
+                
             }
-            
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+       let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCollectionReusableView.identifier, for: indexPath) as!HeaderCollectionReusableView
+        header.label.text = article.headerLabelText[0]
+        return header
+    }
         @IBAction func pushPerson (_ sender: UIButton) {
             let personViewController = PersonViewController()
             navigationController?.pushViewController(personViewController, animated: true)

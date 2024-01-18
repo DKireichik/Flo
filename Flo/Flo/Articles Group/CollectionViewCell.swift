@@ -18,12 +18,15 @@ class CollectionViewCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+  
   
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         contentView.addSubview(imageView)
         contentView.addSubview(labelImage)
+      
         
         NSLayoutConstraint.activate([
 
@@ -33,7 +36,8 @@ class CollectionViewCell: UICollectionViewCell {
             imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             labelImage.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -8),
             labelImage.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 8),
-            labelImage.trailingAnchor.constraint(equalTo: imageView.trailingAnchor)
+            labelImage.trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
+
             
         ])
        
