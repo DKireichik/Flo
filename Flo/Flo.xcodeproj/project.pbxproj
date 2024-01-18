@@ -14,6 +14,10 @@
 		4B1D77C22B14C5F100D6F710 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B1D77C02B14C5F100D6F710 /* LaunchScreen.storyboard */; };
 		4B1D77CA2B15E4EB00D6F710 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D77C92B15E4EB00D6F710 /* CollectionViewCell.swift */; };
 		4B1D77CC2B171D5F00D6F710 /* CollectionViewCellSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D77CB2B171D5F00D6F710 /* CollectionViewCellSort.swift */; };
+		4B8651FD2B3D769D00DA547E /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8651FC2B3D769D00DA547E /* PersonViewController.swift */; };
+		4B86521F2B580FD800DA547E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B86521E2B580FD800DA547E /* TabBarViewController.swift */; };
+		4B8652212B5811ED00DA547E /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8652202B5811ED00DA547E /* TodayViewController.swift */; };
+		4B8652232B58120700DA547E /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8652222B58120700DA547E /* ArticlesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		4B1D77C32B14C5F100D6F710 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B1D77C92B15E4EB00D6F710 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		4B1D77CB2B171D5F00D6F710 /* CollectionViewCellSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellSort.swift; sourceTree = "<group>"; };
+		4B8651FC2B3D769D00DA547E /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
+		4B86521E2B580FD800DA547E /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		4B8652202B5811ED00DA547E /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		4B8652222B58120700DA547E /* ArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,13 +69,25 @@
 				4B1D77B52B14C5EF00D6F710 /* AppDelegate.swift */,
 				4B1D77B72B14C5EF00D6F710 /* SceneDelegate.swift */,
 				4B1D77B92B14C5EF00D6F710 /* ViewController.swift */,
-				4B1D77C92B15E4EB00D6F710 /* CollectionViewCell.swift */,
-				4B1D77CB2B171D5F00D6F710 /* CollectionViewCellSort.swift */,
+				4B86521E2B580FD800DA547E /* TabBarViewController.swift */,
+				4B8652202B5811ED00DA547E /* TodayViewController.swift */,
+				4B8651FC2B3D769D00DA547E /* PersonViewController.swift */,
+				4B8652242B58178D00DA547E /* Articles Group */,
 				4B1D77BE2B14C5F100D6F710 /* Assets.xcassets */,
 				4B1D77C02B14C5F100D6F710 /* LaunchScreen.storyboard */,
 				4B1D77C32B14C5F100D6F710 /* Info.plist */,
 			);
 			path = Flo;
+			sourceTree = "<group>";
+		};
+		4B8652242B58178D00DA547E /* Articles Group */ = {
+			isa = PBXGroup;
+			children = (
+				4B8652222B58120700DA547E /* ArticlesViewController.swift */,
+				4B1D77CB2B171D5F00D6F710 /* CollectionViewCellSort.swift */,
+				4B1D77C92B15E4EB00D6F710 /* CollectionViewCell.swift */,
+			);
+			path = "Articles Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,8 +161,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B1D77BA2B14C5EF00D6F710 /* ViewController.swift in Sources */,
+				4B8651FD2B3D769D00DA547E /* PersonViewController.swift in Sources */,
 				4B1D77B62B14C5EF00D6F710 /* AppDelegate.swift in Sources */,
+				4B8652232B58120700DA547E /* ArticlesViewController.swift in Sources */,
 				4B1D77CA2B15E4EB00D6F710 /* CollectionViewCell.swift in Sources */,
+				4B8652212B5811ED00DA547E /* TodayViewController.swift in Sources */,
+				4B86521F2B580FD800DA547E /* TabBarViewController.swift in Sources */,
 				4B1D77B82B14C5EF00D6F710 /* SceneDelegate.swift in Sources */,
 				4B1D77CC2B171D5F00D6F710 /* CollectionViewCellSort.swift in Sources */,
 			);
